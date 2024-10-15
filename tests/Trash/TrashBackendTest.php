@@ -233,7 +233,7 @@ class TrashBackendTest extends TestCase {
 		$this->loginAsUser('A');
 
 		$userAFolder->newFolder('A/B');
-		$this->ruleManager->saveRule(new Rule(new UserMapping('group', 'A'), $userAFolder->get('A/B')->getId(), Constants::PERMISSION_ALL, 0));
+		$this->ruleManager->saveRule(new Rule(new UserMapping('group', 'A'), $userAFolder->get('A/B')->getId(), Constants::PERMISSION_READ, 0));
 		$this->ruleManager->saveRule(new Rule(new UserMapping('user', 'A'), $userAFolder->get('A/B')->getId(), Constants::PERMISSION_ALL, Constants::PERMISSION_READ | Constants::PERMISSION_UPDATE | Constants::PERMISSION_CREATE));
 		// TODO: Bug?
 		//$this->assertSame(Constants::PERMISSION_READ | Constants::PERMISSION_UPDATE | Constants::PERMISSION_CREATE, $this->aclManager->getACLPermissionsForPath('A/B'));
